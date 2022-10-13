@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: key-value-store-deployment
+  labels:
+    app: py-key-value-store
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: py-key-value-store
+  template:
+    metadata:
+      labels:
+        app: py-key-value-store
+    spec:
+      containers:
+      - name: py-key-value-store
+        image: localhost/py-key-value-store
+        ports:
+        - containerPort: 8000

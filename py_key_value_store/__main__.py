@@ -1,12 +1,13 @@
 import os
 from flask import Flask
 from flask import request, abort
-from database import database
+from .database import database
 
 app = Flask(__name__)
 
 
 @app.get('/doc/')
+@app.get('/doc')
 def index():
     with database as db:
         return list(db.keys())
@@ -31,6 +32,7 @@ def put(key: str):
 
 
 @app.get('/health')
+@app.get('/health/')
 def health():
     return {
         'status': 'ALIVE',
@@ -39,7 +41,7 @@ def health():
     }
 
 
-def main():
+def main(*args, **kwargs):
     app.run()
 
 
