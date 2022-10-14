@@ -1,0 +1,15 @@
+{{- $values := .Values -}}
+{{- range $name, $v := .Values.deployment }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ $name }}"
+spec:
+  selector:
+    app.kubernetes.io/name: "{{ $name }}"
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .port }}
+{{- end }}

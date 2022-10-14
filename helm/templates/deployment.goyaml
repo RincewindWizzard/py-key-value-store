@@ -1,0 +1,29 @@
+{{- $values := .Values -}}
+{{- range $name, $v := .Values.deployment }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ $name }}"
+  labels:
+    app: "{{ $name }}"
+    app.kubernetes.io/name: "{{ $name }}"
+spec:
+  replicas: {{.replicas}}
+  selector:
+    matchLabels:
+      app: "{{ $name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ $name }}"
+        app.kubernetes.io/name: "{{ $name }}"
+    spec:
+      containers:
+        - name: "{{ $name }}"
+          image: "{{ .container }}"
+          ports:
+            - containerPort: {{ .port }}
+
+
+{{- end }}

@@ -6,6 +6,14 @@ from .database import database
 app = Flask(__name__)
 
 
+@app.get('/')
+def root():
+    return {
+        'app': 'py-key-value-store',
+        'hostname': os.uname()[1]
+    }
+
+
 @app.get('/doc/')
 @app.get('/doc')
 def index():
