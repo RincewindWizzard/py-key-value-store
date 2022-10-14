@@ -1,5 +1,0 @@
-apiVersion: v2
-appVersion: 0.1.8
-name: py-key-value-store
-type: application
-version: 0.1.8
