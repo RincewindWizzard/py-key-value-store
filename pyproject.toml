@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-key-value-store"
-version = "0.1.8"
+version = "0.1.11"
 description = ""
 authors = ["RincewindWizzard <git@magierdinge.de>"]
 

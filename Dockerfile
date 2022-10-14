@@ -54,6 +54,7 @@ RUN poetry install --no-dev
 RUN poetry export -f requirements.txt --without-hashes | pip  install -r /dev/stdin
 
 
+
 # `production` image used for runtime
 FROM python-base as production
 ENV FASTAPI_ENV=production

@@ -1,9 +1,10 @@
-#import importlib.metadata
+# import importlib.metadata
 from importlib.metadata import version
 import os
 from flask import Flask
 from flask import request, abort
 from .database import database
+from loguru import logger
 
 app = Flask(__name__)
 
@@ -33,7 +34,7 @@ def get_by_id(key: str):
 
 
 @app.put('/doc/<key>')
-def put(key: str):
+def put_doc(key):
     with database as db:
         db[key] = request.get_json()
         return {
@@ -52,7 +53,6 @@ def health():
 
 
 def main(*args, **kwargs):
-    print(version('py_key_value_store'))
     app.run()
 
 
