@@ -1,14 +1,1 @@
-app_label: "key-value-store"
-
-deployment:
-  echo-server:
-    container: "ealen/echo-server:latest"
-    port: 80
-    replicas: 2
-
-  key-value-store:
-    container: "rincewindwizzard/key-value-store:{{ .Values.chart.metadata.version }}"
-    port: 8000
-    replicas: 2
-
-
+{}

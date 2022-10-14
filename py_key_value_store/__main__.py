@@ -1,3 +1,5 @@
+#import importlib.metadata
+from importlib.metadata import version
 import os
 from flask import Flask
 from flask import request, abort
@@ -50,6 +52,7 @@ def health():
 
 
 def main(*args, **kwargs):
+    print(version('py_key_value_store'))
     app.run()
 
 

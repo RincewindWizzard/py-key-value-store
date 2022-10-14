@@ -63,4 +63,4 @@ WORKDIR /app
 EXPOSE 8000
 
 #CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "py_key_value_store.__main__:main"]
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "py_key_value_store.__main__:app"]
+CMD ["gunicorn", "--access-logfile", "-", "--bind", "0.0.0.0:8000", "py_key_value_store.__main__:app"]
